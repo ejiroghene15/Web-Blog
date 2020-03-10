@@ -1,0 +1,58 @@
+@extends('layouts.master')
+@section('title', 'Gisthub | New post')
+@section('body')
+
+<div class="card col-sm-7 col-12 px-0 mx-auto text-dark content_editor">
+    <h5 class="card-header mx-n0"><i class="fa fa-pencil"></i> Create a new post</h5>
+    <form method="POST" class="card-body">
+        @csrf
+        <div class="row">
+            <div class="col-6">
+                @error('title')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+                <input type="text" name="title" class="form-control" placeholder="Title of your post"
+                    value="{{ old('title') }}">
+            </div>
+
+            <div class="col-6">
+                @error('cat_id')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+                <select name="cat_id" class=" form-control">
+                    <option value=""> select a category</option>
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->category}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class=" col-12 mt-4">
+                @error('body')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+                <textarea id="postbody" name="body" class="form-control" placeholder="Write a post"></textarea>
+                <input type="submit" value="Create post" class="btn btn-success gh-btn mt-3">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="text-center my-3"><a href="{{ url()->previous() }}" style="
+    font-size: 14px;" class="btn btn-info text-center"> <i class="fa fa-long-arrow-left"></i> Go Back </a></div>
+@endsection
+
+@section('scripts')
+@parent
+<script src="/js/ckeditor.js"></script>
+<script>
+    ClassicEditor.create(document.querySelector("#postbody"), {
+    simpleUpload: {
+        // The URL the images are uploaded to.
+        uploadUrl: "http://localhost:3000/api/upload"
+    }
+}).then(editor => {
+    var app = '{!! old('body') !!}';
+    editor.setData(app);
+});
+</script>
+@endsection

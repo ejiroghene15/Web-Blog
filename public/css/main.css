@@ -1,0 +1,260 @@
+.gh-nav {
+  background: url(/images/sidebar.png?dd523cd6597556dfa82a4428930bbb42);
+  box-shadow: 0px 0px 4px #4e4e4e;
+  z-index: 10;
+}
+
+.gh-nav > .navbar-brand .brandfirst {
+  color: #ffffffd9;
+}
+
+.gh-nav > .navbar-brand .brandlast {
+  color: #b98e55;
+}
+
+.gh-nav ._author {
+  color: #804c09;
+}
+
+.gh-nav > .navbar-nav .nav-item {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.gh-nav > .navbar-nav .nav-item:nth-child(1) {
+  margin-left: 10px;
+}
+
+.gh-nav > .navbar-nav .nav-item > a {
+  text-transform: capitalize;
+  transition: background 0.5s linear 0s, color 0.3s linear 0s;
+  -o-transition: background 0.5s linear 0s, color 0.3s linear 0s;
+  -webkit-transition: background 0.5s linear 0s, color 0.3s linear 0s;
+  -moz-transition: background 0.5s linear 0s, color 0.3s linear 0s;
+  color: #804c09;
+}
+
+.gh-nav > .navbar-nav .nav-item > a:hover {
+  color: #b98e55;
+}
+
+.categories {
+  display: none;
+  z-index: 5;
+}
+
+.categories a {
+  color: #c5770f;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  position: relative;
+}
+
+.categories a:hover {
+  color: #444242;
+  text-decoration: none;
+}
+
+.gh-main {
+  -webkit-box-flex: 1;
+          flex: 1;
+  font-size: 14px;
+  z-index: 4;
+  background: #ffffff url(/images/body.jpg?0068205b0e706d58eac8f15ed01309e6);
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.gh-main::before {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  content: "";
+  bottom: 0;
+  z-index: -1;
+}
+
+.gh-main .gc-p {
+  background-color: #804c09;
+}
+
+.gh-main .gh-btn {
+  font-size: 13px;
+  border-radius: 2px !important;
+}
+
+.gh-main #sidebar {
+  background: url(/images/sidebar.png?dd523cd6597556dfa82a4428930bbb42);
+  width: 80px;
+  margin-left: -80px;
+}
+
+.gh-main #sidebar.sidebar-active {
+  margin-left: 0px;
+}
+
+.gh-main #sidebar > ul li {
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  padding: 20px 0px;
+  border-bottom: 1px dotted #804c09;
+}
+
+.gh-main #sidebar > ul li > a,
+.gh-main #sidebar > ul li form {
+  text-decoration: none;
+  color: #b98e55;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.gh-main #sidebar > ul li > a > .nav-icon,
+.gh-main #sidebar > ul li form > .nav-icon {
+  font-size: 25px;
+  margin-bottom: 4px;
+}
+
+.gh-main #sidebar > ul li > a > .nav-text,
+.gh-main #sidebar > ul li form > .nav-text {
+  font-size: 13px;
+}
+
+.gh-main #sidebar > ul li:hover {
+  background-color: #804c09;
+}
+
+.gh-main #sidebar > ul li:hover > a {
+  color: snow;
+}
+
+.gh-main #main-body {
+  font-family: "Alegreya Sans", sans-serif;
+  margin: 5rem 0rem 2rem;
+  position: relative;
+}
+
+.gh-main #main-body.sidebar-active {
+  margin-left: 80px;
+}
+
+.gh-main #main-body #relatedposts .title {
+  color: #804c09;
+}
+
+.gh-main #main-body,
+.gh-main #sidebar {
+  -webkit-transition: margin-left 0.3s ease-out;
+  transition: margin-left 0.3s ease-out;
+}
+
+.gh-main .excerpts > article.card > .card-header,
+.gh-main .excerpts > article.card > .card-footer,
+.gh-main .article > article.card > .card-header,
+.gh-main .article > article.card > .card-footer {
+  background-color: #331b03 !important;
+}
+
+.gh-main .excerpts .author > p,
+.gh-main .article .author > p {
+  text-transform: capitalize;
+  color: #ff9800;
+}
+
+.gh-main .excerpts .heading,
+.gh-main .article .heading {
+  text-transform: capitalize;
+  font-size: 1.7em;
+}
+
+.gh-main .excerpts .category,
+.gh-main .article .category {
+  display: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 2px;
+  font-size: 10px;
+}
+
+.gh-main .excerpts .card-body > .card-text > p,
+.gh-main .article .card-body > .card-text > p {
+  line-height: 2em;
+  margin-bottom: 0px;
+  font-size: 17px;
+}
+
+.gh-main .excerpts .card-body > .card-text figure.image img,
+.gh-main .article .card-body > .card-text figure.image img {
+  width: 100%;
+}
+
+.gh-main .excerpts .continue-reading,
+.gh-main .article .continue-reading {
+  font-size: 80%;
+  font-family: "Rubik", sans-serif;
+}
+
+.gh-main .excerpts .reactions,
+.gh-main .article .reactions {
+  font-size: 12px;
+}
+
+.gh-main .excerpts .reactions.icon_eye,
+.gh-main .article .reactions.icon_eye {
+  background-color: #804c09;
+}
+
+@media screen and (max-width: 768px) {
+  .gh-main #article-container {
+    padding: 0px !important;
+  }
+}
+
+.gh-main #article-container #comment-box .comment-name {
+  color: #804c09;
+  font-size: 1.1em;
+  text-transform: capitalize;
+}
+
+.gh-main .article .author > p {
+  text-transform: capitalize;
+  color: #ff9800;
+}
+
+.gh-main #profile {
+  margin-top: 100px !important;
+}
+
+.gh-main #profile #img-container {
+  margin-top: -85px;
+}
+
+.gh-main #profile #social-links #fb,
+.gh-main #profile #social-links #tw {
+  display: none;
+}
+
+.gh-form-container {
+  bottom: 0;
+}
+
+.gh-form-container .addinfo {
+  font-size: 1.2em;
+  padding: 12px 2em;
+  color: snow !important;
+}
+
+.gh-footer {
+  font-family: "Alegreya Sans", sans-serif;
+  z-index: 10;
+  background: url(/images/sidebar.png?dd523cd6597556dfa82a4428930bbb42);
+  background-color: #e8e7e7ab !important;
+  color: #804c09;
+  font-size: 14px;
+  box-shadow: 0px 0px 5px rgba(153, 148, 148, 0.7);
+}
+

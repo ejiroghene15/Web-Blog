@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Http\File;
-use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('upload', function () {
-    Storage::putFileAs('public/post_images', new File($_FILES['upload']['tmp_name']), $_FILES['upload']['name']);
+Route::post('upload', function (Request $request) {
+    $img_name = pathinfo($request->file('upload')->getClientOriginalName())['filename'];
+    $img_path = Cloudinary\Uploader::upload($request->file('upload'), [
+        "folder" => "articles",
+        "public_id" => $img_name
+    ])['secure_url'];
+
     return response()->json([
         'uploaded' => true,
-        "url" => asset(Storage::url('post_images/' . $_FILES['upload']['name']))
+        "url" => $img_path
     ]);
 });
 

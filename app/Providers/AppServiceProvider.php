@@ -38,11 +38,25 @@ class AppServiceProvider extends ServiceProvider
 
             $excerpts = [];
             if (Posts::exists()) {
-                $excerpts = Posts::all()->sortByDesc('created_at');
+                // * get the excerpts  and paginate them
+                $perpage = 1;
+                $page = request('page');
+                $offset = $perpage * (int) $page;
+                $excerpts = Posts::find(1)->orderBy('created_at', 'desc')->paginate($perpage);
+                $posts_id = $excerpts->map(function ($item, $key) {
+                    //echo $item['id'];
+                    return $item['id'];
+                });
+                // * get the related post not among the paginated excerpts
+                $relatedposts = Posts::whereNotIn('id', $posts_id)
+                    ->orderBy('created_at', 'desc')
+                    ->limit(1)
+                    ->inRandomOrder()
+                    ->get();
             }
 
             $view->with('categories', Categories::get()); # pass the categories to any view on which it will be rendered
-            $view->with(compact('featured', 'excerpts'));
+            $view->with(compact('featured', 'excerpts', 'relatedposts'));
         });
     }
 }

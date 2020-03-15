@@ -12,7 +12,7 @@
 @endif
 @endauth
 <div class="row col-md-10 px-0 mx-auto">
-    <div class="excerpts col-md-8 ">
+    <div class="excerpts col-md-8 mx-auto ">
         @forelse ($excerpts as $excerpt)
         <article class="card mb-5 border-0">
             <section class=" card-header pb-1 px-3">
@@ -51,11 +51,11 @@
         @empty
 
         <div class="container">
-            <div class="jumbotron gc-p">
+            <div class="jumbotron card-bg text-center">
                 <p class="lead">No posts created yet. Create your first post
                     <a class="fa-stack h5 text-light" href="{{ route('create_post') }}">
                         <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-pencil fa-stack-1x bg-primary rounded-circle"></i>
+                        <i class="fa fa-pencil text-dark fa-stack-1x  rounded-circle"></i>
                     </a>
                 </p>
             </div>
@@ -65,14 +65,15 @@
     </div>
 
     {{-- related posts --}}
+    @if (($relatedposts->count() > 0))
     <aside id="relatedposts" class="col-md-4 my-md-0 my-5 align-self-baseline">
         <div class=" card mb-3">
             <div class=" card-header">
-                <h5 class="text-dark lead m-0">Recent Posts</h5>
+                <h5 class=" lead m-0">Recent Posts</h5>
             </div>
             <div class="list-group">
 
-                @forelse ($excerpts as $rp)
+                @forelse ($relatedposts as $rp)
                 <a href="{{ route('article', ['title'=> str_replace(' ', '-', $rp->title) ]) }}"
                     class="list-group-item list-group-item-action">
                     <div>
@@ -86,9 +87,11 @@
                     </p>
                 </a>
                 @empty
-                <h5>No related posts</h5>
+                <h5 class="px-3">No recent posts</h5>
                 @endforelse
             </div>
         </div>
     </aside>
+    <div class="mx-auto"> {{$excerpts->onEachSide(5)->links() }} </div>
+    @endif
 </div>

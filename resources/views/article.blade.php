@@ -46,7 +46,7 @@
 
             <div id="article-container">
                 <div class="row mx-0 px-md-5 justify-content-around">
-                    <div class="col-md-8">
+                    <div class="col-md-8 mx-auto">
                         <div class="article">
                             <article class="card border-0">
 
@@ -156,7 +156,7 @@
                         @if ($article->comments->count() > 0)
                         <section id="comment-box" class="card mt-5">
                             <div class=" card-header">
-                                <h5 class="text-dark lead m-0" style="font-size: 16px">Comments</h5>
+                                <h5 class="lead m-0" style="font-size: 16px">Comments</h5>
                             </div>
                             <div class="list-group">
                                 @foreach (collect($article->comments)->sortByDesc('date') as $comment)
@@ -165,8 +165,8 @@
 
                                     <div class="d-flex">
                                         <section for="avatar" class="mr-2 pr-1 mt-n1">
-                                            <img src="/img/default-avatar.png" class="rounded-circle" height="40"
-                                                width="40">
+                                            <img src="{{ $comment->user->profilepix}}" class="rounded-circle"
+                                                height="40" width="40">
                                         </section>
                                         <section for="comment">
                                             <p class="mb-1 h6 lead comment-name">
@@ -191,10 +191,11 @@
                     </div>
 
                     {{-- related posts --}}
+                    @if (count($related_articles) > 0)
                     <aside id="relatedposts" class="col-md-4 my-md-0 my-5 align-self-baseline">
-                        <div class=" card">
+                        <div class="card">
                             <div class=" card-header">
-                                <h5 class="text-dark lead m-0">Related articles</h5>
+                                <h5 class="lead m-0">Related articles</h5>
                             </div>
                             <div class="list-group">
                                 @forelse ($related_articles as $rp)
@@ -217,19 +218,25 @@
                             </div>
                         </div>
                     </aside>
+                    @endif
                 </div>
             </div>
         </div>
     </main>
 
     <footer class="gh-footer font-weight-bold text-center p-3">
-        Copyright &COPY; {{date('Y')}}, Emmanuel Ebenezer's Blog. Designed with <i class="fa fa-heart"
+        Copyright &COPY; {{date('Y')}}, Some Blog. Designed with <i class="fa fa-heart"
             style="color: #d0342c !important"></i> by Ejiroghene
     </footer>
 
+    @section('scripts')
     <script src="/js/jquery.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key=76bce2100b43771fc13ef6"></script>
     <script src="/js/main.js"></script>
+    @show
 
 </body>
+
+</html>

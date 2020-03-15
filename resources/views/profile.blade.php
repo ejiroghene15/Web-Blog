@@ -3,20 +3,42 @@
 @section('body')
 
 <div id="profile">
-    <div class="col-lg-6 col-md-8 col-sm-8 mx-auto">
-        <div class="card text-dark">
-            <div class="card-body">
-                <center id="img-container" class="mb-4 position-relative d-flex justify-content-center">
-                    <span class="fa-stack  position-absolute align-self-center" style="font-size: 1.8em">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-camera fa-stack-1x fa-inverse" style="font-size:16px"></i>
-                    </span>
-                    <img src="/images/body.jpg" height="120" width="120" class="rounded-circle">
-                </center>
-                <p class="lead text-capitalize">{{$profile->name}}</p>
-                <form method="post">
+    <div class="col-md-6 col-sm-6 mx-auto mb-5" id="flip">
+        <div class="card profile-card border-0">
+            <section id="display-profile" class="text-center show">
+                <img src="{{ $profile->profilepix }}" id="profilephoto" height="120" width="120" class="rounded-circle"
+                    style="margin-top: -65px">
+                <p class="lead text-capitalize mb-0">{{$profile->name}}</p>
+                <p class="lead mb-2" style="font-size: 14px">{{$profile->email}}</p>
+                <p> {{$profile->bio}} </p>
+                <p>
+                    @if (isset($profile->facebook))
+                    <a href="{{$profile->facebook}}" class="mr-1"><img src="{{ asset('img/facebook.png') }}" alt=""
+                            height="25" width="25"></a>
+                    @endif
+                    @if ($profile->twitter)
+                    <a href="{{$profile->twitter}}"><img src="{{ asset('img/twitter.png') }}" alt="" height="25"
+                            width="25"></a>
+                    @endif
+
+                </p>
+                <button id="editprofile" class="btn"> Edit Profile</button>
+            </section>
+
+            <section id="edit-profile">
+                <form method="post" enctype="multipart/form-data" class="card-body">
                     @method("PUT")
                     @csrf
+                    <center id="img-container" class="mb-4 position-relative d-flex justify-content-center">
+                        <span class="fa-stack  position-absolute align-self-center text-dark" style="font-size: 1.8em">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-camera fa-stack-1x fa-inverse" style="font-size:16px"></i>
+                        </span>
+                        <input type="file" name="profilephoto" class="position-absolute align-self-center"
+                            style="opacity:0">
+                        <img src="{{ $profile->profilepix }}" id="profilephoto" height="120" width="120"
+                            class="rounded-circle">
+                    </center>
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Name</label>
                         <div class="col-sm-9">
@@ -91,9 +113,11 @@
                             </div>
                         </div>
                     </div>
+
                     <button type="submit" class="btn btn-success gh-btn">Update Profile</button>
                 </form>
-            </div>
+            </section>
+
         </div>
     </div>
 
@@ -101,4 +125,20 @@
 
     @section('scripts')
     @parent
+    @verbatim
+    <script>
+        $("#editprofile").click(function(){
+$(".profile-card > section").toggleClass("show");
+        });
+        $(":file").change(function ()  {
+            const reader = new FileReader();
+    reader.onload = function ({target}) {
+$("#profilephoto").attr('src', target.result);
+
+    };
+    reader.readAsDataURL(this.files[0]);
+        });
+
+    </script>
+    @endverbatim
     @endsection

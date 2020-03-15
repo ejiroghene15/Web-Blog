@@ -7,8 +7,8 @@
     @endauth
 
     <a class="navbar-brand font-weight-bold" href="/">
-        <img src="{{ asset("images/logo.png") }}" height="40" alt="">
-        {{-- <span class="brandfirst">Emmanuel</span><span class="brandlast">Ebenezer</span> --}}
+        {{-- <img src="{{ asset("images/logo.png") }}" height="40" alt=""> --}}
+        <span class="brandfirst">Gist</span><span class="brandlast">Hub</span>
     </a>
 
     @auth
@@ -21,7 +21,7 @@
     </ul>
 
     <p class="text-capitalize m-0 mt-1 ">
-        <img src="/img/default.jpg" class="rounded-circle" height="30" width="30">
+        <img src="{{auth()->user()->profilepix}}" class="rounded-circle" height="30" width="30">
         <span class="_author">{{auth()->user()->username}}</span>
     </p>
     @else

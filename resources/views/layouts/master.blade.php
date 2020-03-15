@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="/css/fa/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon" />
     {{-- <link rel="stylesheet" href="/css/gisthub.css"> --}}
 </head>
 
@@ -29,8 +28,9 @@
         </div>
     </main>
 
+
     <footer class="gh-footer font-weight-bold text-center p-3">
-        Copyright &COPY; {{date('Y')}}, Emmanuel Ebenezer's Blog. Designed with <i class="fa fa-heart"
+        Copyright &COPY; {{date('Y')}}, Some Blog. Designed with <i class="fa fa-heart"
             style="color: #d0342c !important"></i> by Ejiroghene
     </footer>
 
@@ -38,6 +38,7 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key=76bce2100b43771fc13ef6"></script>
     <script src="/js/main.js"></script>
     @show
 

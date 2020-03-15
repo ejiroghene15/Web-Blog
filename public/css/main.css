@@ -1,15 +1,13 @@
-.gh-nav {
-  background: url(/images/sidebar.png?dd523cd6597556dfa82a4428930bbb42);
+@import url(https://fonts.googleapis.com/css?family=Nunito&display=swap);.gh-nav {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(lightgrey), color-stop(1%, lightgrey), color-stop(26%, #e0e0e0), color-stop(48%, #efefef), color-stop(75%, #d9d9d9), to(#bcbcbc));
+  background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
   box-shadow: 0px 0px 4px #4e4e4e;
   z-index: 10;
 }
 
-.gh-nav > .navbar-brand .brandfirst {
+.gh-nav > .navbar-brand span {
   color: #ffffffd9;
-}
-
-.gh-nav > .navbar-brand .brandlast {
-  color: #b98e55;
+  text-shadow: 0px 1px 6px #b98e55, 0px 2px 0px #804c09, 0px 3px 0px #b98e55, 0px 4px 0px #ffffffd9, 0px 5px 0px #ddd, 0px 6px 10px #ddd;
 }
 
 .gh-nav ._author {
@@ -60,7 +58,7 @@
           flex: 1;
   font-size: 14px;
   z-index: 4;
-  background: #ffffff url(/images/body.jpg?0068205b0e706d58eac8f15ed01309e6);
+  background-image: url("https://res.cloudinary.com/jiroghene/image/upload/v1583820734/backgrounds/body_usxpjr.jpg");
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
@@ -76,17 +74,22 @@
   z-index: -1;
 }
 
-.gh-main .gc-p {
-  background-color: #804c09;
-}
-
 .gh-main .gh-btn {
   font-size: 13px;
   border-radius: 2px !important;
 }
 
+.gh-main .p-color {
+  color: #b98e55;
+}
+
+.gh-main .card-bg {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#09203f), to(#537895));
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+
 .gh-main #sidebar {
-  background: url(/images/sidebar.png?dd523cd6597556dfa82a4428930bbb42);
+  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
   width: 80px;
   margin-left: -80px;
 }
@@ -98,14 +101,23 @@
 .gh-main #sidebar > ul li {
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
-  padding: 20px 0px;
-  border-bottom: 1px dotted #804c09;
+  padding: 25px 0px;
+}
+
+.gh-main #sidebar > ul li::after {
+  position: absolute;
+  height: 1px;
+  content: " ";
+  left: 0;
+  margin-top: 24px;
+  width: 100%;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
 .gh-main #sidebar > ul li > a,
 .gh-main #sidebar > ul li form {
   text-decoration: none;
-  color: #b98e55;
+  color: #d6d1cc;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -115,7 +127,7 @@
 
 .gh-main #sidebar > ul li > a > .nav-icon,
 .gh-main #sidebar > ul li form > .nav-icon {
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 4px;
 }
 
@@ -124,12 +136,8 @@
   font-size: 13px;
 }
 
-.gh-main #sidebar > ul li:hover {
-  background-color: #804c09;
-}
-
 .gh-main #sidebar > ul li:hover > a {
-  color: snow;
+  color: #b98e55;
 }
 
 .gh-main #main-body {
@@ -140,6 +148,10 @@
 
 .gh-main #main-body.sidebar-active {
   margin-left: 80px;
+}
+
+.gh-main #main-body #relatedposts > .card {
+  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
 }
 
 .gh-main #main-body #relatedposts .title {
@@ -156,13 +168,15 @@
 .gh-main .excerpts > article.card > .card-footer,
 .gh-main .article > article.card > .card-header,
 .gh-main .article > article.card > .card-footer {
-  background-color: #331b03 !important;
+  background-image: -webkit-gradient(linear, left top, right top, from(#243949), to(#517fa4));
+  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 }
 
 .gh-main .excerpts .author > p,
 .gh-main .article .author > p {
   text-transform: capitalize;
   color: #ff9800;
+  font-size: 14px;
 }
 
 .gh-main .excerpts .heading,
@@ -173,11 +187,12 @@
 
 .gh-main .excerpts .category,
 .gh-main .article .category {
-  display: none;
+  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%) !important;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   border-radius: 2px;
   font-size: 10px;
+  font-family: "Nunito", sans-serif;
 }
 
 .gh-main .excerpts .card-body > .card-text > p,
@@ -214,19 +229,53 @@
   }
 }
 
+.gh-main #article-container #comment-box {
+  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+}
+
 .gh-main #article-container #comment-box .comment-name {
   color: #804c09;
   font-size: 1.1em;
   text-transform: capitalize;
 }
 
-.gh-main .article .author > p {
-  text-transform: capitalize;
-  color: #ff9800;
-}
-
 .gh-main #profile {
   margin-top: 100px !important;
+}
+
+.gh-main #profile .profile-card {
+  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.gh-main #profile .profile-card > #display-profile {
+  display: none;
+}
+
+.gh-main #profile .profile-card > #display-profile.show {
+  display: block;
+}
+
+.gh-main #profile .profile-card > #display-profile > button {
+  color: whitesmoke;
+  background-color: #804c09;
+  margin-bottom: -20px;
+}
+
+.gh-main #profile .profile-card > #edit-profile {
+  display: none;
+}
+
+.gh-main #profile .profile-card > #edit-profile.show {
+  display: block;
 }
 
 .gh-main #profile #img-container {
@@ -251,7 +300,8 @@
 .gh-footer {
   font-family: "Alegreya Sans", sans-serif;
   z-index: 10;
-  background: url(/images/sidebar.png?dd523cd6597556dfa82a4428930bbb42);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(lightgrey), color-stop(1%, lightgrey), color-stop(26%, #e0e0e0), color-stop(48%, #efefef), color-stop(75%, #d9d9d9), to(#bcbcbc));
+  background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
   background-color: #e8e7e7ab !important;
   color: #804c09;
   font-size: 14px;

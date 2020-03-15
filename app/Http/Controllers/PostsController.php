@@ -55,7 +55,7 @@ class PostsController extends Controller
         $post['author'] = $user->name;
         $post['author_id'] = $user->id;
         Posts::create($post);
-        return back();
+        return redirect()->action("PostsController@create")->with("created", "Your post has been created");
     }
 
     /**
@@ -153,7 +153,7 @@ class PostsController extends Controller
             'cat_id.required' => "Please select the category this post belongs to"
         ])->validate();
         Posts::where('id', $id)->update(['title' => $request->title, 'cat_id' => $request->cat_id, 'body' => $request->body]);
-        return redirect()->route('article', ['title' => str_replace(' ', '-', $request->title)]);
+        return redirect()->action("PostsController@edit", ['title' => str_replace(' ', '-', $request->title)])->with("updated", "Your post has been updated");
     }
 
     /**

@@ -30,7 +30,7 @@
 
 
     <footer class="gh-footer font-weight-bold text-center p-3">
-        Copyright &COPY; {{date('Y')}}, Some Blog. Designed with <i class="fa fa-heart"
+        Copyright &COPY; {{date('Y')}}, GistHub. Designed with <i class="fa fa-heart"
             style="color: #d0342c !important"></i> by Ejiroghene
     </footer>
 

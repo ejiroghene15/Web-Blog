@@ -136,17 +136,9 @@ $("[href='#fb']").click(function () {
 $("[href='#tw']").click(function () {
   $("#tw").show();
 });
-
-/***/ }),
-
-/***/ "./resources/sass/dashboard.scss":
-/*!***************************************!*\
-  !*** ./resources/sass/dashboard.scss ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+document.querySelectorAll('oembed[url]').forEach(function (element) {
+  iframely.load(element, element.attributes.url.value);
+});
 
 /***/ }),
 
@@ -162,14 +154,13 @@ $("[href='#tw']").click(function () {
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************!*\
-  !*** multi ./resources/js/main.js ./resources/sass/dashboard.scss ./resources/sass/main.scss ***!
-  \***********************************************************************************************/
+/*!***************************************************************!*\
+  !*** multi ./resources/js/main.js ./resources/sass/main.scss ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /opt/lampp/htdocs/gh/resources/js/main.js */"./resources/js/main.js");
-__webpack_require__(/*! /opt/lampp/htdocs/gh/resources/sass/dashboard.scss */"./resources/sass/dashboard.scss");
 module.exports = __webpack_require__(/*! /opt/lampp/htdocs/gh/resources/sass/main.scss */"./resources/sass/main.scss");
 
 

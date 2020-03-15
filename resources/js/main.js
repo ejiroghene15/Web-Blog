@@ -67,3 +67,7 @@ $("[href='#tw']").click(() => {
     $("#tw").show();
 });
 
+document.querySelectorAll('oembed[url]').forEach(element => {
+    iframely.load(element, element.attributes.url.value);
+});
+

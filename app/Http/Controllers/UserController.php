@@ -53,6 +53,6 @@ class UserController extends Controller
             'facebook' => $request->fb_link,
             'twitter' => $request->tw_link
         ]);
-        return back();
+        return back()->with("message", "Profile updated");
     }
 }

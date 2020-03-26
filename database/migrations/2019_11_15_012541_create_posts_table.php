@@ -22,6 +22,11 @@ class CreatePostsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('author_id')->index();
+            $table->foreign('author_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('title', 255)->unique();
             $table->text('body');
             $table->tinyInteger('views')->default('0');

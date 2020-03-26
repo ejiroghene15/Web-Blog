@@ -3,13 +3,13 @@
 
 @section('body')
 <div class="gh-form-container mt-5 pt-3 px-3">
-    <div class="card col-12 col-sm-8 col-md-6 col-lg-5 mx-auto px-0 " style="flex:0">
+    <fieldset class="card col-12 col-sm-8 col-md-6 col-lg-5 mx-auto px-0 " style="flex:0">
+        <legend class="bg-dark ml-3 w-auto p-2 px-4 h4 rounded">Login to your account</legend>
         <form action="{{route('login')}}" method="post">
             @csrf
             <div class="card-body text-dark">
-                <h5 class="card-title mb-4 text-center text-sm-left">Login to your account</h5>
                 <div class="form-group">
-                    <label>Username or Email address</label>
+                    <label> Email address</label>
                     <input type="text" name="email" class="form-control">
                     @error('email')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -26,7 +26,7 @@
                 </a> --}}
             </div>
         </form>
-    </div>
+    </fieldset>
     <div class="text-center mt-3">
         <a href="/register" class="btn rounded-pill gc-p addinfo">Create an account</a>
     </div>

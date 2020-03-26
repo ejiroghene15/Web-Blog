@@ -4,28 +4,37 @@
 @section('body')
 
 <div class="gh-form-container px-3">
-    <div class="card col-12 col-sm-8 col-md-6 col-lg-5  mx-auto px-0">
-        <div class="card-body text-dark">
-            <h5 class="card-title mb-4 text-center text-sm-left">Create an account</h5>
-            <form action="{{ route('register') }}" method="post">
-                @csrf
+    <fieldset class="card col-12 col-sm-8 col-md-6 col-lg-5  mx-auto px-0">
+        <legend class="bg-dark ml-3 w-auto p-2 px-4 h4 rounded">Create an account</legend>
+        @if (session('registered'))
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span class="fa fa-times-circle"></span>
+            </button>
+            <h6>{{ session('registered') }}</h6>
+        </div>
+        @endif
+        <form action="{{ route('register') }}" method="post">
+            @csrf
+            <div class="card-body text-dark">
+
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" value="{{ old('name')  }}">
                     @error('name')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" class="form-control">
+                    <input type="text" name="username" class="form-control" value="{{ old('username')  }}">
                     @error('username')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Email address</label>
-                    <input type="email" name="email" class="form-control">
+                    <input type="email" name="email" class="form-control" value="{{ old('email')  }}">
                     @error('email')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
@@ -42,9 +51,9 @@
                     <input type="password" name="password_confirmation" class="form-control">
                 </div>
                 <input type="submit" value="Register" class="btn btn-sm btn-success">
-            </form>
-        </div>
-    </div>
+            </div>
+        </form>
+    </fieldset>
     <div class="text-center mt-3 mb-5">
         <a href="/login" class="btn gc-p rounded-pill addinfo">Login to your account</a>
     </div>

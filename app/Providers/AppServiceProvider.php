@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
 				$perpage = 1;
 				$page = request('page');
 				$offset = $perpage * (int) $page;
-				$excerpts = Posts::find(1)->orderBy('created_at', 'desc')->paginate($perpage);
+				$excerpts = Posts::orderBy('created_at', 'desc')->paginate($perpage);
 				$posts_id = $excerpts->map(function ($item, $key) {
 					//echo $item['id'];
 					return $item['id'];

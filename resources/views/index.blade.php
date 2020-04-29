@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('body')
-@include('excerpts')
+@include('post.excerpts')
 @endsection

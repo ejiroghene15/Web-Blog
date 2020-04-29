@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', "GistHub | $category")
+@section('title', config('app.name') ." | $category")
 
 @section('body')
 <ul>

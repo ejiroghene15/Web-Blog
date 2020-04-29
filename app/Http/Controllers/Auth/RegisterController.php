@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-	/*
+    /*
 	|--------------------------------------------------------------------------
 	| Register Controller
 	|--------------------------------------------------------------------------
@@ -24,58 +24,59 @@ class RegisterController extends Controller
 	|
 	*/
 
-	use RegistersUsers;
+    use RegistersUsers;
 
-	/**
-	 * Where to redirect users after registration.
-	 *
-	 * @var string
-	 */
-	protected $redirectTo = '/register';
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/register';
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('guest');
-	}
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
-	/**
-	 * Get a validator for an incoming registration request.
-	 *
-	 * @param  array  $data
-	 * @return \Illuminate\Contracts\Validation\Validator
-	 */
-	protected function validator(array $data)
-	{
-		return Validator::make($data, [
-			'name' => ['required', 'string', 'max:255'],
-			'username' => ['required', 'string', 'min:4', 'unique:users'],
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-			'password' => ['required', 'string', 'min:6', 'confirmed'],
-		]);
-	}
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'min:4', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+    }
 
-	/**
-	 * Create a new user instance after a valid registration.
-	 *
-	 * @param  array  $data
-	 * @return \App\User
-	 */
-	protected function create(array $data)
-	{
-		User::create([
-			'name' => $data['name'],
-			'username' => $data['username'],
-			'email' => $data['email'],
-			'password' => Hash::make($data['password']),
-		]);
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create(array $data)
+    {
+        $data['verification_token'] = str_random();
+        User::create([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'verification_token' => $data['verification_token'],
+            'password' => Hash::make($data['password']),
+        ]);
 
-		Mail::to($data['email'])->send(new EmailVerification($data));
-
-		return session()->flash("registered", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
-	}
+        Mail::to($data['email'])->send(new EmailVerification($data));
+        return session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
+    }
 }

@@ -1,56 +1,63 @@
 @extends('layouts.master')
-@section('title', "GistHub | Register")
+@section('title', config('app.name') ." | Register")
 
 @section('body')
 
 <div class="gh-form-container px-3">
     <fieldset class="card col-12 col-sm-8 col-md-6 col-lg-5  mx-auto px-0">
-        <legend class="bg-dark ml-3 w-auto p-2 px-4 h4 rounded">Create an account</legend>
-        @if (session('registered'))
+        <legend class="bg-dark ml-3 w-auto p-2 px-4 h5 rounded">Create an account</legend>
+        @if (session('message'))
         <div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span class="fa fa-times-circle"></span>
             </button>
-            <h6>{{ session('registered') }}</h6>
+            {{ session('message') }}
         </div>
         @endif
         <form action="{{ route('register') }}" method="post">
             @csrf
             <div class="card-body text-dark">
-
                 <div class="form-group">
                     <label>Name</label>
-                <input type="text" name="name" class="form-control" value="{{ old('name')  }}">
+                    <input type="text" name="name" class="form-control" value="{{ old('name')  }}">
                     @error('name')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                    <div class="invalid-feedback d-block">
+                        <strong>{{ $message }}</strong>
+                    </div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="username" class="form-control" value="{{ old('username')  }}">
                     @error('username')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                    <div class="invalid-feedback d-block">
+                        <strong>{{ $message }}</strong>
+                    </div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Email address</label>
                     <input type="email" name="email" class="form-control" value="{{ old('email')  }}">
                     @error('email')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                    <div class="invalid-feedback d-block">
+                        <strong>{{ $message }}</strong>
+                    </div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="password" class="form-control">
                     @error('password')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                    <div class="invalid-feedback d-block">
+                        <strong>{{ $message }}</strong>
+                    </div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Confirm password</label>
                     <input type="password" name="password_confirmation" class="form-control">
                 </div>
-                <input type="submit" value="Register" class="btn btn-sm btn-success">
+                <input type="submit" value="Register" class="btn btn-success">
             </div>
         </form>
     </fieldset>

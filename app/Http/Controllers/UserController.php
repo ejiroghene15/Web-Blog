@@ -6,25 +6,44 @@ use App\Posts;
 use App\User;
 use Cloudinary;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+
 
 class UserController extends Controller
 {
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/');
+    }
+
+    public function verifyAccount(Request $request)
+    {
+        User::where([
+            'verification_token' => $request->query('vtk')
+        ])->update(
+            [
+                'email_verified_at' => now(),
+                'account_status' => 'active'
+            ]
+        );
+        return redirect('login')->with('message', 'Your account has been verified, you can now login');
+    }
+
     public function archive()
     {
         // get all the post created by the user
         $post = [];
         if (Posts::exists()) {
-            $post = Posts::find(1)->where("author_id", Auth::id())->orderBy('created_at', 'desc')->simplePaginate(10);
+            $post = Posts::latest()->where("author_id", auth()->id())->simplePaginate(10);
         }
-        return view('archive')->with(compact('post'));
+        return view('archive')->withPost($post);
     }
 
     public function show()
     {
-        $profile = User::findOrFail(Auth::id());
-        return view('profile')->with(compact('profile'));
+        $profile = User::findOrFail(auth()->id());
+        return view('profile')->withProfile($profile);
     }
 
     public function update(Request $request)
@@ -44,7 +63,7 @@ class UserController extends Controller
             ])['secure_url'];
         }
 
-        User::where('email', Auth::user()->email)->update([
+        User::where('email', auth()->user()->email)->update([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,

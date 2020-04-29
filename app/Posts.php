@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posts extends Model
 {
-    protected $fillable = ['title', 'body', 'cat_id', 'author_id'];
+    protected $fillable = ['title',  'title_slug', 'body', 'cat_id', 'author_id'];
+
+    public function getRouteKeyName()
+    {
+        return 'title_slug';
+    }
 
     public function category()
     {
@@ -32,7 +37,7 @@ class Posts extends Model
     {
         return $this->hasMany('App\PostViews', 'post_id');
     }
-    
+
     public function reaction()
     {
         return $this->hasMany('App\PostLikes', 'post_id');

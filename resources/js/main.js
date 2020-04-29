@@ -1,9 +1,18 @@
-$('[data-toggle="tooltip"]').tooltip();
+$.protip();
+
 // ? click on the hamburger icon to toggle the sidebar
-$('[data-toggle="sidebar"]').click(function () {
-    $("#sidebar, #main-body").toggleClass("sidebar-active");
+$('[data-toggle="sidebar"]').click(function (e) {
+    e.stopPropagation();
+    $("#sidebar").toggleClass("sidebar-active");
 });
+
+// ? close the sidebar  when any part of the document is clicked
+$(document).click(function (e) {
+    $("#sidebar").removeClass("sidebar-active");
+});
+
 $(".toggle-category").click(() => $(".categories").slideToggle());
+
 $(".categories a").hover(
     function () {
         // over
@@ -51,7 +60,7 @@ $(".icon_heart").click(function () {
             ? hearts++
             : hearts--;
 
-    $.post("http://localhost:3000/api/react_on_post", { hearts, postid, userid }, () => {
+    $.post("http://localhost:5000/api/react_on_post", { hearts, postid, userid }, () => {
         elem_hearts.text(hearts);
         elem_icon.toggleClass("fa-heart fa-heart-o");
     });

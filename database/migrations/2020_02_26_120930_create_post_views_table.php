@@ -17,9 +17,14 @@ class CreatePostViewsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('post_id');
-            $table->foreign('user_id')
-                ->references('author_id')
+            $table->foreign('post_id')
+                ->references('id')
                 ->on('posts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

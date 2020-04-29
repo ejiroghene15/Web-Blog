@@ -28,7 +28,9 @@ class CreatePostsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('title', 255)->unique();
+            $table->text('title_slug')->nullable();
             $table->text('body');
+            $table->boolean('is_approved')->default('2');
             $table->tinyInteger('views')->default('0');
             $table->tinyInteger('love')->default('0');
             $table->timestamps();

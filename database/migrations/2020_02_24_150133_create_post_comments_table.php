@@ -23,6 +23,11 @@ class CreatePostCommentsTable extends Migration
                 ->onDelete('cascade');
             $table->text('comment')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamp('date')->useCurrent();
         });
     }

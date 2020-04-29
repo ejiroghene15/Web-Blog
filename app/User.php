@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'bio', 'profilepix', 'facebook', 'twitter', 'linkedin'
+        'name', 'username', 'verification_token', 'email', 'password', 'bio', 'profilepix', 'facebook', 'twitter', 'linkedin'
     ];
 
     /**
@@ -35,5 +35,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'lastseen' => 'datetime'
     ];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Posts', 'author_id');
+    }
 }

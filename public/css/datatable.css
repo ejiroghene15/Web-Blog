@@ -1,0 +1,122 @@
+div.material-table .hiddensearch {
+    padding: 0 14px 0 24px;
+    border-bottom: solid 1px #dddddd;
+    display: none;
+}
+
+div.material-table .hiddensearch label {
+    display: block;
+}
+
+div.material-table .hiddensearch input {
+    margin: 0;
+    border: transparent 0 !important;
+    box-shadow: none !important;
+    height: 48px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.84);
+}
+
+div.material-table .hiddensearch input:active {
+    border: transparent 0 !important;
+}
+
+div.material-table .table-header {
+    height: 64px;
+    padding-left: 24px;
+    padding-right: 14px;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-display: flex;
+    border-bottom: solid 1px #dddddd;
+}
+
+div.material-table .table-header .actions {
+    display: -webkit-flex;
+    margin-left: auto;
+}
+
+div.material-table .table-header .btn-flat {
+    min-width: 36px;
+    padding: 0 8px;
+}
+
+div.material-table .table-header input {
+    margin: 0;
+    height: auto;
+}
+
+div.material-table .table-header i {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 24px;
+}
+
+div.material-table .table-footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 12px !important;
+    color: inherit;
+}
+
+div.material-table .table-footer .dataTables_length {
+    display: -webkit-flex;
+    display: flex;
+}
+
+div.material-table .table-footer label {
+    font-size: 12px;
+    color: inherit !important;
+}
+
+div.material-table .table-footer .dataTables_info,
+div.material-table .table-footer .dataTables_length {
+    margin-right: 32px;
+}
+
+div.material-table .table-footer .material-pagination {
+    display: flex;
+    -webkit-display: flex;
+    margin: 0;
+    position: relative;
+    bottom: 4px;
+    list-style: none;
+}
+
+div.material-table .table-footer .material-pagination li:first-child {
+    margin-right: 24px;
+}
+
+div.material-table .table-footer .material-pagination li a {
+    color: inherit !important;
+}
+
+div.material-table .table-footer .select-wrapper input.select-dropdown {
+    margin: 0;
+    border-bottom: none;
+    height: auto;
+    line-height: normal;
+    font-size: 12px;
+    width: 40px;
+    text-align: right;
+}
+
+div.material-table .table-footer select {
+    background-color: transparent;
+    width: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    height: auto;
+    margin-left: 20px;
+    color: initial;
+}
+
+div.material-table table tr td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

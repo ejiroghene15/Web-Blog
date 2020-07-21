@@ -23,3 +23,5 @@
                 <h5 class="card-body py-2">Your archive is empty</h5>
                 @endforelse
             </div>
+
+CLEARDB_DATABASE_URL: mysql://be7ccbc1b6f863:474fd47f@us-cdbr-east-02.cleardb.com/heroku_f3073a18f8a544c?reconnect=true

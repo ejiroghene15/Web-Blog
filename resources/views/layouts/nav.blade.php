@@ -7,8 +7,8 @@
     @endauth
 
     <a class="navbar-brand font-weight-bold" href="/">
-        {{-- <img src="{{ asset("images/logo.png") }}" height="40" alt=""> --}}
-        <span class="brandfirst">Writers</span><span class="brandlast">Hub</span>
+        <img src="{{ asset("https://res.cloudinary.com/jiroghene/image/upload/v1595346144/writers_hub/logo_y3ibnj.png") }}" height="45" alt="">
+
     </a>
 
     @auth

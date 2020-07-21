@@ -35,7 +35,8 @@ class UserController extends Controller
         // get all the post created by the user
         $post = [];
         if (Posts::exists()) {
-            $post = Posts::latest()->where("author_id", auth()->id())->simplePaginate(10);
+            // $post = Posts::latest()->where("author_id", auth()->id())->simplePaginate(10);
+            $post = User::find(auth()->id())->posts()->simplePaginate(10);
         }
         return view('archive')->withPost($post);
     }

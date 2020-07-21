@@ -4,11 +4,9 @@ namespace App\Providers;
 
 date_default_timezone_set('Africa/Lagos');
 
-use Illuminate\Support\ServiceProvider;
 use App\Categories;
 use App\Posts;
-use App\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

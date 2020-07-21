@@ -8,7 +8,8 @@
         </li>
         @auth
         @if (auth()->user()->is_admin)
-        <li class="d-block d-md-none d-lg-none">
+        {{-- <li class="d-block d-md-none d-lg-none"> --}}
+        <li>
             <a href="{{ url('newpost') }}">
                 <i class="nav-icon fa fa-pencil"></i>
                 <span class="nav-text">New post</span>

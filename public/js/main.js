@@ -93,8 +93,8 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$.protip(); // ? click on the hamburger icon to toggle the sidebar
-
+// $.protip();
+// ? click on the hamburger icon to toggle the sidebar
 $('[data-toggle="sidebar"]').click(function (e) {
   e.stopPropagation();
   $("#sidebar").toggleClass("sidebar-active");
@@ -124,7 +124,7 @@ $(".icon_heart").click(function () {
   var elem_icon = $(".icon_heart i");
   elem_hearts = $("#no_of_hearts"), hearts = Number(elem_hearts.text()), postid = $("#article_id").text(), userid = $("#user_id").text();
   hearts == 0 ? elem_icon.hasClass("fa-heart-o") ? hearts++ : false : elem_icon.hasClass("fa-heart-o") ? hearts++ : hearts--;
-  $.post("http://localhost:5000/api/react_on_post", {
+  $.post("http://localhost:3000/api/react_on_post", {
     hearts: hearts,
     postid: postid,
     userid: userid
@@ -141,7 +141,7 @@ $("[href='#fb']").click(function () {
 $("[href='#tw']").click(function () {
   $("#tw").show();
 });
-document.querySelectorAll('oembed[url]').forEach(function (element) {
+document.querySelectorAll("oembed[url]").forEach(function (element) {
   iframely.load(element, element.attributes.url.value);
 });
 

@@ -33,9 +33,7 @@
         </main>
 
         @section('footer')
-        <footer class="gh-footer font-weight-bold text-center p-3 @auth d-none d-md-block d-lg-block @endauth">
-            Copyright &COPY; {{date('Y')}}, WritersHub.ng
-        </footer>
+      @include('layouts.footer')
         @show
 
         @section('scripts')

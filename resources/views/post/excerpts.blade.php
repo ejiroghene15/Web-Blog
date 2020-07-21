@@ -15,7 +15,7 @@
         @forelse ($excerpts as $excerpt)
         <article class="card mb-5 border-0">
             <section class=" card-header pb-1 px-3">
-                <div class="d-flex justify-content-between align-items-start mb-2">
+                <div class="d-flex justify-content-between align-items-start mb-2 p-2">
                     <p class="heading m-0">{{$excerpt->title}}</p>
                     <p class="category badge p-2 m-0 gc-p">{{$excerpt->category->category}}</p>
                 </div>

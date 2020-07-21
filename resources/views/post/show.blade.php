@@ -57,7 +57,7 @@
 								<article class="card border-0">
 
 									<section class=" card-header">
-										<div class="d-flex justify-content-between align-items-start mb-1">
+										<div class="d-flex justify-content-between align-items-start mb-1 p-2">
 											<p class="h5 heading m-0">{{$article->title}}</p>
 											<p class="category badge badge-info p-2 m-0 gc-p">
 												{{$article->category->category}}

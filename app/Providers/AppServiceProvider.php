@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // * pass the categories to any view on which it will be rendered
-        view()->share('categories', Categories::get());
+        // view()->share('categories', Categories::get());
         view()->composer(['index'], function ($view) {
             // * function for displaying a portion of the the post.. this is called an excerpt
             $featured = function ($text, $numb) {

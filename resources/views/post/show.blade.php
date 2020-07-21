@@ -63,7 +63,7 @@
 												{{$article->category->category}}
 											</p>
 										</div>
-										<div class="d-flex">
+										<div class="d-flex mb-2">
 											<img src="{{$article->user->profilepix}}" class="rounded-circle" height="40" width="40">
 											<div class="d-inline-block pl-2 w-100 author">
 												<p class="m-0  border-bottom" style="border-color: #9ca5ad42">

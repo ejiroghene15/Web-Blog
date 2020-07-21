@@ -19,7 +19,7 @@
                     <p class="heading m-0">{{$excerpt->title}}</p>
                     <p class="category badge p-2 m-0 gc-p">{{$excerpt->category->category}}</p>
                 </div>
-                <div class="d-flex">
+                <div class="d-flex mb-2">
                     <img src="{{ $excerpt->user->profilepix }}" class="rounded-circle" height="40" width="40">
                     <div class="d-inline-block pl-2 w-100 author">
                         <p class="m-0 border-light border-bottom">{{$excerpt->user->name}}</p>

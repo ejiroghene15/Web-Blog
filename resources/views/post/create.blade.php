@@ -3,55 +3,57 @@
 @section('body')
 
 <div class="col-md-8 mx-auto">
-    <div class="card text-dark border-0 content_editor">
-        <h5 class="card-header mx-n0"><i class="fa fa-pencil"></i> Create a new post</h5>
-        <form method="POST" class="card-body text-dark">
-            @csrf
-            <div class="row">
-                <div class="col-6">
-                    @error('title')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
+	<div class="card text-dark border-0 content_editor">
+		<h5 class="card-header mx-n0"><i class="fa fa-pencil"></i> Create a new post</h5>
+		<form method="POST" class="card-body text-dark">
+			@csrf
+			<div class="row">
+				<div class="col-6">
+					@error('title')
+					<div class="invalid-feedback d-block">{{ $message }}</div>
 
-                    @enderror
-                    <input type="text" name="title" class="form-control" placeholder="Title of your post"
-                        value="{{ old('title') }}">
-                </div>
+					@enderror
+					<input type="text" name="title" class="form-control" placeholder="Title of your post"
+						value="{{ old('title') }}">
+				</div>
 
-                <div class="col-6">
-                    @error('cat_id')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                    <select name="cat_id" class=" form-control">
-                        <option value=""> select a category</option>
-                        @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->category}}</option>
-                        @endforeach
-                    </select>
-                </div>
+				<div class="col-6">
+					@error('cat_id')
+					<div class="invalid-feedback d-block">{{ $message }}</div>
+					@enderror
+					<select name="cat_id" class=" form-control">
+						<option value=""> select a category</option>
+						@foreach ($categories as $category)
+						<option value="{{$category->id}}">{{$category->category}}</option>
+						@endforeach
+					</select>
+				</div>
 
-                <div class=" col-12 mt-4">
-                    @error('body')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                    <textarea id="postbody" name="body" class="form-control" placeholder="Write a post"></textarea>
-                    <input type="submit" value="Create post" class="btn btn-success gh-btn mt-3">
-                </div>
-            </div>
-        </form>
-    </div>
+				<div class=" col-12 mt-4">
+					@error('body')
+					<div class="invalid-feedback d-block">{{ $message }}</div>
+					@enderror
+					<textarea id="postbody" name="body" class="form-control" placeholder="Write a post"></textarea>
+					<input type="submit" value="Create post" class="btn btn-success gh-btn mt-3">
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
+
 <div class="text-center my-3"><a href="{{ url()->previous() }}" style="
-	font-size: 14px;" class="btn btn-info text-center"> <i class="fa fa-long-arrow-left"></i> Go Back </a></div>
+	font-size: 14px;" class="btn btn-info text-center"> <i class="fa fa-long-arrow-left"></i> Go Back </a>
+</div>
 @endsection
 
 @section('scripts')
 @parent
 <script src="/js/ckeditor.js"></script>
 <script>
-    ClassicEditor.create(document.querySelector("#postbody"), {
+	ClassicEditor.create(document.querySelector("#postbody"), {
 	simpleUpload: {
 		// The URL the images are uploaded to.
-		uploadUrl: "http://localhost:5000/api/upload"
+		uploadUrl: "{!! config('app.url') !!}/api/upload"
 	}
 }).then(editor => {
 	var app = '{!! old('body') !!}';

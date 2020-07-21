@@ -7,7 +7,7 @@ use App\User;
 use Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use JD\Cloudder\Facades\Cloudder;
 
 class UserController extends Controller
 {
@@ -57,11 +57,12 @@ class UserController extends Controller
 
         $img_path = auth()->user()->profilepix;
         if ($request->hasFile('profilephoto')) {
-            $img_name = pathinfo($request->file('profilephoto')->getClientOriginalName())['filename'];
-            $img_path = Cloudinary\Uploader::upload($request->file('profilephoto'), [
+            $img_name = pathinfo($request->file('profilephoto')->getClientOriginalName())['filename'] . auth()->user()->username;
+            Cloudder::upload($request->file('profilephoto'), $img_name, [
                 "folder" => "profilephotos",
-                "public_id" => $img_name
-            ])['secure_url'];
+            ]);
+
+            $img_path = Cloudder::getResult()['secure_url'];
         }
 
         User::where('email', auth()->user()->email)->update([

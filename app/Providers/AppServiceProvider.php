@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		Schema::defaultStringLength(191);
+		Schema::defaultStringLength(255);
 		// * pass the categories to any view on which it will be rendered
 		// view()->share('categories', Categories::get());
 		view()->composer(['index'], function ($view) {

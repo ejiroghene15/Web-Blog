@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->text('title')->unique();
+            $table->string('title', 255)->unique();
             $table->text('title_slug')->nullable();
             $table->text('body');
             $table->boolean('is_approved')->default('2');

@@ -53,7 +53,7 @@
 	ClassicEditor.create(document.querySelector("#postbody"), {
 	simpleUpload: {
 		// The URL the images are uploaded to.
-		uploadUrl: "{!! config('app.url') !!}/api/upload"
+		uploadUrl: "/api/upload"
 	}
 }).then(editor => {
 	var app = '{!! old('body') !!}';

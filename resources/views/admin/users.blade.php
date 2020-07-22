@@ -17,8 +17,8 @@
                         <td class="d-flex">
                             <a href="{{route("userprofile", $user->id)}}" class="text-decoration-none text-dark h6">
                                 <img src="{{$user->profilepix}}" class="rounded-circle" alt="" height="50" width="50">
-                                <div class="ml-2">
-                                    <p class="m-0">
+                                <div class="ml-2"> 
+                                    <p class="m-0 text-capitalize">
                                         {{$user->name}}
                                         @if (filled($user->email_verified_at))
                                         <span class="protip" data-pt-title="Account Verified" data-pt-scheme="leaf"

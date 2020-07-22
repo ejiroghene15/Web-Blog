@@ -219,7 +219,7 @@
 									<a href="{{ route('article',  $rp->title_slug) }}"
 										class="list-group-item list-group-item-action">
 										<div>
-											<p class="mb-1 h5  lead title text-capitalize"> {{ $rp->title }} </p>
+											<p class="mb-1 h5  lead title text-capitalize"> {{ strtolower($rp->title)}} </p>
 										</div>
 										<p class="mb-1 text-capitalize"><span
 												class="fa fa-user-o mr-2"></span>{{ $rp->user->name }}

@@ -85,7 +85,6 @@
 											</span>
 										</button>
 
-
 										<div class="align-self-center">
 											<span class="badge badge-info gc-p badge-pill reactions icon_eye p-2 mr-1">
 												<i class="fa fa-eye mr-1"></i>{{$article->views}}

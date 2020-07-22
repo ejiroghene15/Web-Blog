@@ -49,7 +49,10 @@ class PostsController extends Controller
 			}
 		}
 
-		$related_articles = Posts::where('id', '<>', $article->id)
+		$related_articles = Posts::where([
+			['is_approved', 1],
+			['id', '<>', $article->id]
+		])
 			->inRandomOrder()
 			->take(2)
 			->get();

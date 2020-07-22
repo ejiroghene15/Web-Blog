@@ -26,7 +26,7 @@
                                             <i class="fa fa-check-circle text-success"></i>
                                         </span>
                                         @endif
-                                        <a class=" text-dark d-block text-decoration-none">{{$user->username}}</a>
+                                        <a class=" text-dark text-capitalize d-block text-decoration-none">{{$user->username}}</a>
                                     </p>
                                     @if (($user->lastseen))
                                     <p class="m-0 pt-1">

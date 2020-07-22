@@ -42,10 +42,10 @@
                                 <p class="m-0">
                                     <a href="{{ route('article', $post->title_slug)}}" target="_blank"
                                         class="text-dark text-decoration-none h6">
-                                        <span class="p-color">{{$post->title}}</span>
+                                        <span class="p-color text-capitalize">{{$post->title}}</span>
                                     </a>
                                 </p>
-                                <p class="m-0"> {{$post->user->name}} </p>
+                                <p class="m-0 text-capitalize"> {{$post->user->name}} </p>
                                 <p class="m-0">
                                     {{ $post->created_at->format('D jS F Y')}}
                                     <a class="ml-1 protip" href="{{ route('preview', $post->title_slug) }}"

@@ -79,16 +79,18 @@ class PostsController extends Controller
         $post_id = request('postid');
         $user_id = request('userid');
 
-        $_has_reacted = Posts::find($post_id)->reaction()->where('user_id', $user_id)->count();
-        if ($_has_reacted == 0) {
-            PostLikes::firstOrCreate(['post_id' => $post_id, 'user_id' => $user_id]);
-            Posts::where('id', $post_id)->increment('love');
-        } else {
-            if ($hearts == 1) {
+        if (auth()->check()) {
+            $_has_reacted = Posts::find($post_id)->reaction()->where('user_id', $user_id)->count();
+            if ($_has_reacted == 0) {
+                PostLikes::firstOrCreate(['post_id' => $post_id, 'user_id' => $user_id]);
                 Posts::where('id', $post_id)->increment('love');
             } else {
-                Posts::where('id', $post_id)->decrement('love');
-                Posts::find($post_id)->reaction()->where('user_id', $user_id)->delete();
+                if ($hearts == 1) {
+                    Posts::where('id', $post_id)->increment('love');
+                } else {
+                    Posts::where('id', $post_id)->decrement('love');
+                    Posts::find($post_id)->reaction()->where('user_id', $user_id)->delete();
+                }
             }
         }
     }

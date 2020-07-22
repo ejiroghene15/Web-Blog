@@ -61,7 +61,7 @@ $(".icon_heart").click(function() {
 		: hearts--;
 
 	$.post(
-		"http://localhost:3000/api/react_on_post",
+		"{{!! config('app.url') !!}/api/react_on_post",
 		{ hearts, postid, userid },
 		() => {
 			elem_hearts.text(hearts);

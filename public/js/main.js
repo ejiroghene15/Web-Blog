@@ -124,7 +124,7 @@ $(".icon_heart").click(function () {
   var elem_icon = $(".icon_heart i");
   elem_hearts = $("#no_of_hearts"), hearts = Number(elem_hearts.text()), postid = $("#article_id").text(), userid = $("#user_id").text();
   hearts == 0 ? elem_icon.hasClass("fa-heart-o") ? hearts++ : false : elem_icon.hasClass("fa-heart-o") ? hearts++ : hearts--;
-  $.post("http://localhost:3000/api/react_on_post", {
+  $.post("{{!! config('app.url') !!}/api/react_on_post", {
     hearts: hearts,
     postid: postid,
     userid: userid

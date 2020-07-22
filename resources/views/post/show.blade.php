@@ -8,15 +8,11 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 		<meta name="twitter:card" content="summary_large_image">
-		<meta property="og:url" content="" />
+		<meta property="og:url" content="{{ route('article', $excerpt->title_slug) }}" />
 		<meta property="og:type" content="article" />
-		<meta property="og:title" content="" />
-		<meta property="og:description" content=" " />
-		<meta property="og:image" content="" />
-		<meta property="og:image:width" content="750" />
-		<meta property="og:image:height" content="750" />
+		<meta property="og:title" content="{{ $excerpt->title }}" />
 		<meta name="msapplication-TileColor" content="#b98e55">
-		<meta name="theme-color" content="#804c09">
+		<meta name="theme-color" content="linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
@@ -117,9 +113,11 @@
 									</section>
 									<div class="card-body py-3 pb-0 d-flex justify-content-between">
 										<div>
-											<a href=""><img src="{{ asset('img/facebook.png') }}" class="mr-2" alt=""
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('article', $excerpt->title_slug) }}">
+                                                <img src="{{ asset('img/facebook.png') }}" class="mr-2" alt=""
 													height="30" width="30"></a>
-											<a href=""><img src="{{ asset('img/whatsapp.png') }}" class="mr-2" alt=""
+											<a href="https://twitter.com/intent/tweet?text={{ route('article', $excerpt->title_slug) }}">
+                                                <img src="{{ asset('img/whatsapp.png') }}" class="mr-2" alt=""
 													height="35" width="35"></a>
 											<a href=""><img src="{{ asset('img/twitter.png') }}" class="mr-2" alt=""
 													height="30" width="30"></a>
@@ -238,7 +236,20 @@
 		@include('layouts.scripts')
 		<script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key=76bce2100b43771fc13ef6"></script>
 		<script src="/js/main.js"></script>
+<script>
+		function fbshare() {
+			window.open(
+				'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href),
+				'facebook-share-dialog',
+				'width=626,height=436'
+			);
+			return false;
+		}
 
+		function twitterShare() {
+			window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(location.href))
+		}
+</script>
 	</body>
 
 </html>

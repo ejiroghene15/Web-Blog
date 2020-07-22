@@ -398,5 +398,9 @@
   .gh-main #article-container {
     padding: 0px !important;
   }
+
+  .gh-form-container legend legend {
+    width: 200px !important;
+  }
 }
 

@@ -32,7 +32,7 @@
                             </span>
                             @else
                             <span class="protip mr-1 align-self-center" data-pt-title="post rejected"
-                                data-pt-scheme="purple" data-pt-position="top" data-pt-trigger="click"
+                                data-pt-scheme="pro" data-pt-position="top" data-pt-trigger="click"
                                 style="font-size: 10px">
                                 <i class="fa fa-2x fa-times-circle text-danger"></i>
                             </span>

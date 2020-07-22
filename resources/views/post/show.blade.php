@@ -113,14 +113,21 @@
 									</section>
 									<div class="card-body py-3 pb-0 d-flex justify-content-between">
 										<div>
-                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('article', $article->title_slug) }}">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('article', $article->title_slug) }}" target="_blank">
                                                 <img src="{{ asset('img/facebook.png') }}" class="mr-2" alt=""
-													height="30" width="30"></a>
-											<a href="https://twitter.com/intent/tweet?text={{ route('article', $article->title_slug) }}">
+                                                    height="30" width="30">
+                                                </a>
+
+
+											<a href="whatsapp://send?text=={{ route('article', $article->title_slug) }}" target="_blank">
                                                 <img src="{{ asset('img/whatsapp.png') }}" class="mr-2" alt=""
-													height="35" width="35"></a>
-											<a href=""><img src="{{ asset('img/twitter.png') }}" class="mr-2" alt=""
-													height="30" width="30"></a>
+                                                    height="35" width="35">
+                                                </a>
+
+                                                    <a href="https://twitter.com/intent/tweet?text={{ route('article', $article->title_slug) }}" target="_blank">
+                                                <img src="{{ asset('img/twitter.png') }}" class="mr-2" alt=""
+                                                    height="30" width="30">
+                                                </a>
 										</div>
 										@can('update-post', $article)
 										{{-- display edit button if the person logged in is the creator of the post --}}
@@ -236,20 +243,7 @@
 		@include('layouts.scripts')
 		<script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key=76bce2100b43771fc13ef6"></script>
 		<script src="/js/main.js"></script>
-<script>
-		function fbshare() {
-			window.open(
-				'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href),
-				'facebook-share-dialog',
-				'width=626,height=436'
-			);
-			return false;
-		}
 
-		function twitterShare() {
-			window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(location.href))
-		}
-</script>
 	</body>
 
 </html>

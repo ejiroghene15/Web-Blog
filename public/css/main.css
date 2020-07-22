@@ -292,12 +292,6 @@
   background-color: #804c09;
 }
 
-@media screen and (max-width: 768px) {
-  .gh-main #article-container {
-    padding: 0px !important;
-  }
-}
-
 .gh-main #article-container #comment-box {
   background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
 }
@@ -380,5 +374,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .gh-main .excerpts > article.card > .card-header > div:first-of-type,
+  .gh-main .article > article.card > .card-header > div:first-of-type {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+            flex-direction: column-reverse;
+    margin-bottom: 0 !important;
+  }
+
+  .gh-main .excerpts .category,
+  .gh-main .article .category {
+    margin-bottom: 2% !important;
+  }
+
+  .gh-main #article-container {
+    padding: 0px !important;
+  }
 }
 

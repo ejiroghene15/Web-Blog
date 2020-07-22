@@ -400,7 +400,9 @@
   }
 
   .gh-form-container legend {
-    width: auto !important;
+    width: -webkit-max-content !important;
+    width: -moz-max-content !important;
+    width: max-content !important;
   }
 }
 

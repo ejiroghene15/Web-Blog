@@ -22,7 +22,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-        <title>@yield( "title", config('app.name') ." | "){{ ucwords($article->title) }}</title>
+        <title>@yield( "title", config('app.name') ." | "){{ ucwords(strtolower($article->title)) }}</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/fa/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/custom.css">

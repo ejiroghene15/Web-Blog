@@ -1,4 +1,4 @@
-// $.protip();
+$.protip();
 
 // ? click on the hamburger icon to toggle the sidebar
 $('[data-toggle="sidebar"]').click(function(e) {

@@ -42,7 +42,7 @@
                                 <p class="m-0">
                                     <a href="{{ route('article', $post->title_slug)}}" target="_blank"
                                         class="text-dark text-decoration-none h6">
-                                        <span class="p-color text-capitalize">{{$post->title}}</span>
+                                        <span class="p-color text-capitalize">{{strtolower($post->title)}}</span>
                                     </a>
                                 </p>
                                 <p class="m-0 text-capitalize"> {{$post->user->name}} </p>

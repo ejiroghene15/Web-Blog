@@ -32,7 +32,7 @@
                                 <p class="mb-1 h6">
                                     <a href="{{ route('article', $post->title_slug) }}" target="_blank"
                                         class="text-dark text-decoration-none">
-                                        <span class="p-color">{{$post->title}}</span>
+                                        <span class="p-color text-capitalize">{{strtolower($post->title)}}</span>
                                     </a>
                                     @if ($post->is_approved == 1)
                                     <span class="protip align-self-center" data-pt-title="post approved"

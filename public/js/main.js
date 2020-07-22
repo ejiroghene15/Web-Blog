@@ -93,8 +93,8 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// $.protip();
-// ? click on the hamburger icon to toggle the sidebar
+$.protip(); // ? click on the hamburger icon to toggle the sidebar
+
 $('[data-toggle="sidebar"]').click(function (e) {
   e.stopPropagation();
   $("#sidebar").toggleClass("sidebar-active");

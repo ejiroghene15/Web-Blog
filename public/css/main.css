@@ -385,6 +385,11 @@
     margin-bottom: 0 !important;
   }
 
+  .gh-main .excerpts .heading,
+  .gh-main .article .heading {
+    margin-right: 0% !important;
+  }
+
   .gh-main .excerpts .category,
   .gh-main .article .category {
     margin-bottom: 2% !important;

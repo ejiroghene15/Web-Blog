@@ -8,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 		<meta name="twitter:card" content="summary_large_image">
-		<meta property="og:url" content="{{ route('article', $excerpt->title_slug) }}" />
+		{{-- <meta property="og:url" content="{{ route('article', $excerpt->title_slug) }}" /> --}}
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="{{ $excerpt->title }}" />
 		<meta name="msapplication-TileColor" content="#b98e55">

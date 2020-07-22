@@ -4,7 +4,7 @@
 
 <div class="col-md-12">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-md-4 mb-5 mb-lg-0 mb-md-0">
             <div class="card text-dark border-0">
                 <div class="card-header">
                     <h6 class="card-title m-0 d-flex justify-content-between">

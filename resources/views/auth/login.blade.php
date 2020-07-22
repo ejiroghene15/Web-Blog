@@ -18,7 +18,7 @@
             <div class="card-body text-dark">
                 <div class="form-group">
                     <label> Email address</label>
-                    <input type="text" name="email" class="form-control">
+                    <input type="text" name="email" class="form-control" required>
                     @error('email')
                     <div class="invalid-feedback d-block">
                         <strong>{{ $message }}</strong>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control">
+                    <input type="password" name="password" class="form-control" required>
                 </div>
                 <input type="submit" value="Login" name="login" class="btn btn-success px-4">
                 <a href="{{ url('password/reset')}}"

@@ -71,12 +71,28 @@ class RegisterController extends Controller
 
         Mail::to($data['email'])->send(new EmailVerification($data));
         session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'verification_token' => $data['verification_token'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new Response('', 201)
+            : redirect($this->redirectPath());
     }
 }

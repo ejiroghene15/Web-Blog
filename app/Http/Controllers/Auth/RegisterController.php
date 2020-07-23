@@ -78,6 +78,6 @@ class RegisterController extends Controller
 
         Mail::to($data['email'])->send(new EmailVerification($data));
         session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
-        redirect()->route('login');
+        return redirect()->route('login');
     }
 }

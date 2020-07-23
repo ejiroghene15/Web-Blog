@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\EmailVerification;
-use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -69,8 +69,6 @@ class RegisterController extends Controller
     {
         $data['verification_token'] = str_random();
 
-        Mail::to($data['email'])->send(new EmailVerification($data));
-        session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
         User::create([
             'name' => $data['name'],
             'username' => $data['username'],
@@ -78,10 +76,15 @@ class RegisterController extends Controller
             'verification_token' => $data['verification_token'],
             'password' => Hash::make($data['password']),
         ]);
+
+        Mail::to($data['email'])->send(new EmailVerification($data));
+        session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
     }
+
 
     public function register(Request $request)
     {
+
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));

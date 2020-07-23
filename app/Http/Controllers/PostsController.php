@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\PostComments;
 use App\PostLikes;
 use App\Posts;
 use App\PostViews;

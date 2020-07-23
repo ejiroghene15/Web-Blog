@@ -10,7 +10,9 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span class="fa fa-times-circle"></span>
             </button>
-            {{ session('message') }}
+            <span class="mr-2">
+                {{ session('message') }}
+            </span>
         </div>
         @endif
         <form action="{{route('login')}}" method="post">

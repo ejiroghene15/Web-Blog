@@ -11,7 +11,9 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span class="fa fa-times-circle"></span>
             </button>
-            {{ session('message') }}
+            <span class="mr-2">
+                {{ session('message') }}
+            </span>
         </div>
         @endif
         <form action="{{ route('register') }}" method="post">
@@ -19,7 +21,8 @@
             <div class="card-body text-dark">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" class="form-control" value="{{ old('name')  }}" required autocomplete="off">
+                    <input type="text" name="name" class="form-control" value="{{ old('name')  }}" required
+                        autocomplete="off">
                     @error('name')
                     <div class="invalid-feedback d-block">
                         <strong>{{ $message }}</strong>
@@ -28,7 +31,8 @@
                 </div>
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" class="form-control" value="{{ old('username')  }}" required autocomplete="off">
+                    <input type="text" name="username" class="form-control" value="{{ old('username')  }}" required
+                        autocomplete="off">
                     @error('username')
                     <div class="invalid-feedback d-block">
                         <strong>{{ $message }}</strong>

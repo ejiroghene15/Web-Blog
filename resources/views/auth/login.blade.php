@@ -18,7 +18,7 @@
             <div class="card-body text-dark">
                 <div class="form-group">
                     <label> Email address</label>
-                    <input type="text" name="email" class="form-control" required>
+                    <input type="text" name="email" class="form-control" required autocomplete="off">
                     @error('email')
                     <div class="invalid-feedback d-block">
                         <strong>{{ $message }}</strong>

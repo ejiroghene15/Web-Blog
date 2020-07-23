@@ -31,11 +31,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected function redirectTo()
-    {
+    protected $redirectTo = '/register';
 
-        return '/path'; // return dynamicaly generated URL.
-    }
     /**
      * Create a new controller instance.
      *
@@ -71,15 +68,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $data['verification_token'] = str_random();
-        User::create([
+
+        Mail::to($data['email'])->send(new EmailVerification($data));
+        session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
+        return User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'verification_token' => $data['verification_token'],
             'password' => Hash::make($data['password']),
         ]);
-
-        Mail::to($data['email'])->send(new EmailVerification($data));
-        return session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
     }
 }

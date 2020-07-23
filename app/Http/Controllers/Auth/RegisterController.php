@@ -75,8 +75,8 @@ class RegisterController extends Controller
             'verification_token' => $data['verification_token'],
             'password' => Hash::make($data['password']),
         ]);
-
-        Mail::to($data['email'])->send(new EmailVerification($data));
-        return session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
+        return redirect()->route('login');
+        // Mail::to($data['email'])->send(new EmailVerification($data));
+        // return session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
     }
 }

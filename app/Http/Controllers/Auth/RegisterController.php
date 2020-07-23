@@ -68,7 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $data['verification_token'] = str_random();
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
@@ -76,7 +76,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        return redirect()->route('login');
         // Mail::to($data['email'])->send(new EmailVerification($data));
-        session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
+        // session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
     }
 }

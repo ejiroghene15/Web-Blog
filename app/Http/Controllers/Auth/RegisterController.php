@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    // protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -76,8 +76,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        return redirect()->route('login');
-        // Mail::to($data['email'])->send(new EmailVerification($data));
-        // session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
+        Mail::to($data['email'])->send(new EmailVerification($data));
+        return session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
     }
 }

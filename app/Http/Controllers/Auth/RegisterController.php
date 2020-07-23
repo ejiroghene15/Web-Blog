@@ -24,14 +24,14 @@ class RegisterController extends Controller
 	|
 	*/
 
-    use RegistersUsers;
+    // use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    // protected $redirectTo = '/register';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -78,6 +78,5 @@ class RegisterController extends Controller
 
         Mail::to($data['email'])->send(new EmailVerification($data));
         session()->flash("message", "Your registration was successful, A verification link has been sent to your email address, Please verify your account before logging in");
-        return redirect()->route('login');
     }
 }

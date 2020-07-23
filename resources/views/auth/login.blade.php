@@ -10,7 +10,7 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span class="fa fa-times-circle"></span>
             </button>
-            <span class="mr-2">
+            <span class="mr-3 d-inline-block">
                 {{ session('message') }}
             </span>
         </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostLikesTable extends Migration
+class CreateForumCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePostLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_likes', function (Blueprint $table) {
+        Schema::create('forum_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->nullable()->onUpdate('cascade')->onDelete('cascade')->constrained('posts');
-            $table->foreignId('user_id')->nullable()->onUpdate('cascade')->onDelete('cascade')->constrained('users');
+            $table->string('name', 50);
+            $table->timestamps();
         });
     }
 
@@ -27,6 +27,6 @@ class CreatePostLikesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_likes');
+        Schema::dropIfExists('forum_categories');
     }
 }

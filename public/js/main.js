@@ -95,32 +95,22 @@
 
 $.protip(); // ? click on the hamburger icon to toggle the sidebar
 
-$('[data-toggle="sidebar"]').click(function (e) {
+$('[data-toggle="sidebar"]').on("click", function (e) {
   e.stopPropagation();
   $("#sidebar").toggleClass("sidebar-active");
 }); // ? close the sidebar  when any part of the document is clicked
 
-$(document).click(function (e) {
+$(document).on("click", function (e) {
   $("#sidebar").removeClass("sidebar-active");
 });
-$(".toggle-category").click(function () {
+$(".toggle-category").on("click", function () {
   return $(".categories").slideToggle();
-});
-$(".categories a").hover(function () {
-  // over
-  $(this).animate({
-    bottom: "10px"
-  }, 50, "linear");
-}, function () {
-  $(this).animate({
-    bottom: "0px"
-  }, 0, "linear");
 });
 $(".ck-content").each(function (i) {
   $(this).html($(this).html().trim().replace("<p>&nbsp;</p>", ""));
 }); // * reactions on on post
 
-$(".icon_heart").click(function () {
+$(".icon_heart").on("click", function () {
   var elem_icon = $(".icon_heart i");
   elem_hearts = $("#no_of_hearts"), hearts = Number(elem_hearts.text()), postid = $("#article_id").text(), userid = $("#user_id").text();
   hearts == 0 ? elem_icon.hasClass("fa-heart-o") ? hearts++ : false : elem_icon.hasClass("fa-heart-o") ? hearts++ : hearts--;
@@ -134,16 +124,27 @@ $(".icon_heart").click(function () {
   });
 }); // ! profile
 
-$("[href='#fb']").click(function () {
+$("[href='#fb']").on("click", function () {
   $("#fb").show();
 }); // ! profile
 
-$("[href='#tw']").click(function () {
+$("[href='#tw']").on("click", function () {
   $("#tw").show();
 });
 document.querySelectorAll("oembed[url]").forEach(function (element) {
   iframely.load(element, element.attributes.url.value);
 });
+
+/***/ }),
+
+/***/ "./resources/sass/forum_templates/default.scss":
+/*!*****************************************************!*\
+  !*** ./resources/sass/forum_templates/default.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -159,14 +160,15 @@ document.querySelectorAll("oembed[url]").forEach(function (element) {
 /***/ }),
 
 /***/ 0:
-/*!***************************************************************!*\
-  !*** multi ./resources/js/main.js ./resources/sass/main.scss ***!
-  \***************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** multi ./resources/js/main.js ./resources/sass/main.scss ./resources/sass/forum_templates/default.scss ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /opt/lampp/htdocs/gh/resources/js/main.js */"./resources/js/main.js");
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/gh/resources/sass/main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! /opt/lampp/htdocs/gh/resources/sass/main.scss */"./resources/sass/main.scss");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/gh/resources/sass/forum_templates/default.scss */"./resources/sass/forum_templates/default.scss");
 
 
 /***/ })

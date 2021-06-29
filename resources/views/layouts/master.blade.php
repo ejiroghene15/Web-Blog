@@ -11,8 +11,8 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/fa/css/font-awesome.min.css">
         <link rel="stylesheet" href="//gitcdn.link/repo/wintercounter/Protip/master/protip.min.css">
-        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> --}}
-        {{-- @if (str_contains(request()->path(), 'admin')) --}}
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
         <link rel="stylesheet" href="/css/datatable.css">
         {{-- @endif --}}
         <link rel="stylesheet" href="/css/custom.css">
@@ -33,7 +33,7 @@
         </main>
 
         @section('footer')
-      @include('layouts.footer')
+        @include('layouts.footer')
         @show
 
         @section('scripts')

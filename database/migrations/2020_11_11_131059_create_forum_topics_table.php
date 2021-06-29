@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostViewsTable extends Migration
+class CreateForumTopicsTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,10 +13,12 @@ class CreatePostViewsTable extends Migration
    */
   public function up()
   {
-    Schema::create('post_views', function (Blueprint $table) {
+    Schema::create('forum_topics', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('post_id')->nullable()->onUpdate('cascade')->onDelete('cascade')->constrained('posts');
+      $table->string('subject', 255);
+      $table->foreignId('forum_id')->nullable()->onDelete('cascade')->onUpdate('cascade')->constrained('forums');
       $table->foreignId('user_id')->nullable()->onUpdate('cascade')->onDelete('cascade')->constrained('users');
+      $table->timestampTz('date', 0);
     });
   }
 
@@ -27,6 +29,6 @@ class CreatePostViewsTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('post_views');
+    Schema::dropIfExists('forum_topics');
   }
 }

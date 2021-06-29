@@ -14,20 +14,20 @@ use Illuminate\Http\Request;
  */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-	return $request->user();
+    return $request->user();
 });
 
 Route::post('upload', function (Request $request) {
-	$img_name = pathinfo($request->file('upload')->getClientOriginalName())['filename'];
-	$img_path = Cloudinary\Uploader::upload($request->file('upload'), [
-		"folder" => "articles",
-		"public_id" => $img_name,
-	])['secure_url'];
+    $img_name = pathinfo($request->file('upload')->getClientOriginalName())['filename'];
+    $img_path = Cloudinary\Uploader::upload($request->file('upload'), [
+        "folder" => "articles",
+        "public_id" => $img_name,
+    ])['secure_url'];
 
-	return response()->json([
-		'uploaded' => true,
-		"url" => $img_path,
-	]);
+    return response()->json([
+        'uploaded' => true,
+        "url" => $img_path,
+    ]);
 });
 
 Route::post('react_on_post', 'PostsController@react');

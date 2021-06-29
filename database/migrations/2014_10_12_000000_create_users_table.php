@@ -6,42 +6,42 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('username')->unique()->nullable();
-            $table->boolean('is_admin')->default(false);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('verification_token')->nullable();
-            $table->string('password');
-            $table->string('account_status')->default("unverified");
-            $table->text('bio')->nullable();
-            $table->string('profilepix')->default("https://res.cloudinary.com/jiroghene/image/upload/v1583814631/profilephotos/placeholder_afglhp.jpg");
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->boolean('online')->default(false);
-            $table->timestamp('lastseen', 0)->nullable();
-            $table->rememberToken();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('users', function (Blueprint $table) {
+      $table->id();
+      $table->string('name');
+      $table->string('username')->unique()->nullable();
+      $table->boolean('is_admin')->default(false);
+      $table->string('email')->unique();
+      $table->timestamp('email_verified_at')->nullable();
+      $table->string('verification_token')->nullable();
+      $table->string('password');
+      $table->string('account_status')->default("unverified");
+      $table->text('bio')->nullable();
+      $table->string('profilepix')->default("https://res.cloudinary.com/jiroghene/image/upload/v1583814631/profilephotos/placeholder_afglhp.jpg");
+      $table->string('facebook')->nullable();
+      $table->string('twitter')->nullable();
+      $table->string('linkedin')->nullable();
+      $table->boolean('online')->default(false);
+      $table->timestamp('lastseen', 0)->nullable();
+      $table->rememberToken();
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('users');
+  }
 }

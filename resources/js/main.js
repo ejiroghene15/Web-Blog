@@ -1,39 +1,17 @@
 $.protip();
 
 // ? click on the hamburger icon to toggle the sidebar
-$('[data-toggle="sidebar"]').click(function(e) {
+$('[data-toggle="sidebar"]').on("click", function(e) {
     e.stopPropagation();
     $("#sidebar").toggleClass("sidebar-active");
 });
 
 // ? close the sidebar  when any part of the document is clicked
-$(document).click(function(e) {
+$(document).on("click", function(e) {
     $("#sidebar").removeClass("sidebar-active");
 });
 
-$(".toggle-category").click(() => $(".categories").slideToggle());
-
-$(".categories a").hover(
-    function() {
-        // over
-        $(this).animate(
-            {
-                bottom: "10px"
-            },
-            50,
-            "linear"
-        );
-    },
-    function() {
-        $(this).animate(
-            {
-                bottom: "0px"
-            },
-            0,
-            "linear"
-        );
-    }
-);
+$(".toggle-category").on("click", () => $(".categories").slideToggle());
 
 $(".ck-content").each(function(i) {
     $(this).html(
@@ -45,7 +23,7 @@ $(".ck-content").each(function(i) {
 });
 
 // * reactions on on post
-$(".icon_heart").click(function() {
+$(".icon_heart").on("click", function() {
     let elem_icon = $(".icon_heart i");
     (elem_hearts = $("#no_of_hearts")),
         (hearts = Number(elem_hearts.text())),
@@ -67,12 +45,12 @@ $(".icon_heart").click(function() {
 });
 
 // ! profile
-$("[href='#fb']").click(() => {
+$("[href='#fb']").on("click", () => {
     $("#fb").show();
 });
 
 // ! profile
-$("[href='#tw']").click(() => {
+$("[href='#tw']").on("click", () => {
     $("#tw").show();
 });
 

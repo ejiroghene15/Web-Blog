@@ -1,0 +1,18 @@
+$primary-color: #b98e55;
+$deep-primary: #804c09;
+$default-card: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+$content: linear-gradient(to right, #243949 0%, #517fa4 100%);
+
+$nav-bg: linear-gradient(
+    to top,
+    lightgrey 0%,
+    lightgrey 1%,
+    #e0e0e0 26%,
+    #efefef 48%,
+    #d9d9d9 75%,
+    #bcbcbc 100%
+);
+
+.collapsible-categories {
+    background-image: $default-card !important;
+}
